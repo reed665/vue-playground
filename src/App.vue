@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import { useMousePosition } from './modules/composables'
+
+const { listenMouseMove } = useMousePosition()
+
+listenMouseMove()
 </script>
 
 <template>
