@@ -1,21 +1,12 @@
 <script setup lang="ts">
+import { AView } from '@/modules/common/components'
 import { useMousePosition } from '../composables/useMousePosition'
 
 const { mouseX, mouseY } = useMousePosition()
 </script>
 
 <template>
-  <div class="composables">
+  <AView class="composables">
     Mouse position is at: {{ mouseX }}, {{ mouseY }}
-  </div>
+  </AView>
 </template>
-
-<style scoped>
-@media (min-width: 1024px) {
-  .composables {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
