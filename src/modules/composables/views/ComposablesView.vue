@@ -5,7 +5,17 @@ const { mouseX, mouseY } = useMousePosition()
 </script>
 
 <template>
-  <div class="ComposablesView">
+  <div class="composables">
     Mouse position is at: {{ mouseX }}, {{ mouseY }}
   </div>
 </template>
+
+<style scoped>
+@media (min-width: 1024px) {
+  .composables {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+}
+</style>
