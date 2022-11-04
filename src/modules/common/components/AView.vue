@@ -1,5 +1,9 @@
 <template>
   <div class="a-view">
+    <h1 v-if="$slots.heading">
+      <slot name="heading" />
+    </h1>
+
     <slot />
   </div>
 </template>
@@ -9,7 +13,7 @@
   .a-view {
     min-height: 100vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
   }
 }
 </style>

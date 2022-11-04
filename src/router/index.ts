@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import { ComposablesView } from '@/modules/composables'
+import { RenderlessComponentsView } from '@/modules/renderless-components'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,8 +22,13 @@ const router = createRouter({
     {
       path: '/composables',
       name: 'composables',
-      component: ComposablesView
-    }
+      component: ComposablesView,
+    },
+    {
+      path: '/renderless-components',
+      name: 'renderless-components',
+      component: RenderlessComponentsView,
+    },
   ]
 })
 

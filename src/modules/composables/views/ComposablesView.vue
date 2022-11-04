@@ -7,6 +7,10 @@ const { mouseX, mouseY } = useMousePosition()
 
 <template>
   <AView class="composables">
+    <template #heading>
+      Composables
+    </template>
+
     Mouse position is at: {{ mouseX }}, {{ mouseY }}
   </AView>
 </template>

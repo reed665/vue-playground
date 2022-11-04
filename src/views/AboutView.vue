@@ -4,6 +4,10 @@ import { AView } from '@/modules/common/components'
 
 <template>
   <AView class="about">
-    <h1>This is an about page</h1>
+    <template #heading>
+      This is an about page
+    </template>
+
+    <p>About page content</p>
   </AView>
 </template>
