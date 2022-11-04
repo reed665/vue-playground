@@ -11,7 +11,7 @@ export const useMousePosition = () => {
       mouseY.value = event.pageY
     })
   }
-  
+
   return {
     mouseX,
     mouseY,

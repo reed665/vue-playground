@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { AView } from '@/modules/common/components'
 import { useMousePosition } from '../composables/useMousePosition'
+import { AView } from '@/modules/common/components'
 
 const { mouseX, mouseY } = useMousePosition()
 </script>
