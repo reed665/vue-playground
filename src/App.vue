@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterView } from 'vue-router'
+import { TheLayout, TheNav } from './modules/common/components'
 import { useMousePosition } from './modules/composables'
 
 const { listenMouseMove } = useMousePosition()
@@ -9,80 +9,13 @@ listenMouseMove()
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125">
+  <TheLayout>
+    <template #nav>
+      <TheNav />
+    </template>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">
-          Home
-        </RouterLink>
-        <RouterLink to="/about">
-          About
-        </RouterLink>
-        <RouterLink to="/composables">
-          Composables
-        </RouterLink>
-        <RouterLink to="/renderless-components">
-          Renderless Components
-        </RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+    <template #content>
+      <RouterView />
+    </template>
+  </TheLayout>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  display: flex;
-  flex-direction: column;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-
-  nav a {
-    padding: 0 1rem;
-  }
-}
-</style>
