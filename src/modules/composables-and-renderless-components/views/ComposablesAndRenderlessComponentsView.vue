@@ -4,9 +4,9 @@ import { AView } from '@/modules/common/components'
 </script>
 
 <template>
-  <AView class="renderless-components">
+  <AView class="composables-and-renderless-components">
     <template #heading>
-      Renderless Components
+      Composables and Renderless Components
     </template>
 
     <MouseTracker v-slot="{ mouseX, mouseY }">

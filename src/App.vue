@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import { TheLayout, TheNav } from './modules/common/components'
-import { useMousePosition } from './modules/composables'
+import { useMousePosition } from './modules/composables-and-renderless-components'
 
 const { listenMouseMove } = useMousePosition()
 

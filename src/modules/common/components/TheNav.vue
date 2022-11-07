@@ -1,22 +1,19 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink } from 'vue-router'
+import { RouteName } from '@/router/RouteName'
 
 const navData = [
   {
-    to: '/',
+    to: { name: RouteName.Home },
     text: 'Home',
   },
   {
-    to: '/about',
+    to: { name: RouteName.About },
     text: 'About',
   },
   {
-    to: '/composables',
-    text: 'Composables',
-  },
-  {
-    to: '/renderless-components',
-    text: 'Renderless Components',
+    to: { name: RouteName.ComposablesAndRenderlessComponents },
+    text: 'Composables And Renderless Components',
   },
 ]
 </script>
@@ -25,7 +22,7 @@ const navData = [
   <nav>
     <RouterLink
       v-for="item of navData"
-      :key="item.to"
+      :key="item.to.name"
       :to="item.to"
     >
       {{ item.text }}

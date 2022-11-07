@@ -1,8 +1,7 @@
 import type { RouteRecordRaw } from 'vue-router'
 import { HomeView } from '../modules/home'
 import { RouteName } from './RouteName'
-import { ComposablesView } from '@/modules/composables'
-import { RenderlessComponentsView } from '@/modules/renderless-components'
+import { ComposablesAndRenderlessComponentsView } from '@/modules/composables-and-renderless-components'
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -19,13 +18,8 @@ export const routes: RouteRecordRaw[] = [
     component: () => import('../modules/about/views/AboutView.vue'),
   },
   {
-    path: '/composables',
-    name: RouteName.Composables,
-    component: ComposablesView,
-  },
-  {
-    path: '/renderless-components',
-    name: RouteName.RenderlessComponents,
-    component: RenderlessComponentsView,
+    path: '/composables-and-renderless-components',
+    name: RouteName.ComposablesAndRenderlessComponents,
+    component: ComposablesAndRenderlessComponentsView,
   },
 ]
