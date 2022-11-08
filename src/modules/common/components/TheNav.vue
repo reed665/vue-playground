@@ -1,20 +1,27 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
+import { type RouteLocationRaw, RouterLink } from 'vue-router'
+import { nanoid } from 'nanoid/non-secure'
 import { RouteName } from '@/router/RouteName'
 
-const navData = [
-  {
-    to: { name: RouteName.Home },
-    text: 'Home',
-  },
-  {
-    to: { name: RouteName.About },
-    text: 'About',
-  },
-  {
-    to: { name: RouteName.ComposablesAndRenderlessComponents },
-    text: 'Composables And Renderless Components',
-  },
+interface INavItem {
+  id: string
+  to: RouteLocationRaw
+  text: string
+}
+
+const newNavItem = (text: string, to: RouteLocationRaw) => {
+  return {
+    id: nanoid(),
+    text,
+    to,
+  }
+}
+
+const navData: INavItem[] = [
+  newNavItem('Home', { name: RouteName.Home }),
+  newNavItem('About', { name: RouteName.About }),
+  newNavItem('Composables And Renderless Components', { name: RouteName.ComposablesAndRenderlessComponents }),
+  newNavItem('Scale', { name: RouteName.Scale }),
 ]
 </script>
 
@@ -22,7 +29,7 @@ const navData = [
   <nav>
     <RouterLink
       v-for="item of navData"
-      :key="item.to.name"
+      :key="item.id"
       :to="item.to"
     >
       {{ item.text }}

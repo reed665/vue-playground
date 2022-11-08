@@ -2,6 +2,7 @@ import type { RouteRecordRaw } from 'vue-router'
 import { HomeView } from '../modules/home'
 import { RouteName } from './RouteName'
 import { ComposablesAndRenderlessComponentsView } from '@/modules/composables-and-renderless-components'
+import { ScaleView } from '@/modules/scale'
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -21,5 +22,10 @@ export const routes: RouteRecordRaw[] = [
     path: '/composables-and-renderless-components',
     name: RouteName.ComposablesAndRenderlessComponents,
     component: ComposablesAndRenderlessComponentsView,
+  },
+  {
+    path: '/scale',
+    name: RouteName.Scale,
+    component: ScaleView,
   },
 ]
