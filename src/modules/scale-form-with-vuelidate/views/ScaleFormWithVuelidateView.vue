@@ -1,0 +1,79 @@
+<script setup lang="ts">
+import { reactive } from 'vue'
+import { useVuelidate } from '@vuelidate/core'
+import { required } from '@vuelidate/validators'
+import FormControl from '../components/FormControl.vue'
+import BetterScaleTextField from '../components/BetterScaleTextField.vue'
+import { AView } from '@/modules/common/components'
+
+const state = reactive({
+  firstName: '',
+  lastName: '',
+})
+
+const rules = {
+  firstName: { required },
+  lastName: { required },
+}
+
+const v$ = useVuelidate(rules, state)
+
+const onFormSubmit = async () => {
+  await v$.value.$validate()
+}
+
+const resetForm = () => {
+  v$.value.$reset()
+
+  state.firstName = ''
+  state.lastName = ''
+}
+</script>
+
+<template>
+  <AView>
+    <template #heading>
+      Scale form with Vuelidate
+    </template>
+
+    <form @submit.prevent="onFormSubmit">
+      <FormControl>
+        <BetterScaleTextField
+          v-model="state.firstName"
+          label="First name"
+          :invalid="v$.firstName.$error"
+          :helper-text="v$.firstName.$error ? v$.firstName.$errors[0].$message : ''"
+        />
+      </FormControl>
+
+      <FormControl>
+        <BetterScaleTextField
+          v-model="state.lastName"
+          label="Last name"
+          :invalid="v$.lastName.$error"
+          :helper-text="v$.lastName.$error ? v$.lastName.$errors[0].$message : ''"
+        />
+      </FormControl>
+
+      <scale-button type="submit">
+        Submit
+      </scale-button>
+
+      <scale-button
+        type="button"
+        variant="secondary"
+        style="margin-left: var(--scl-spacing-16);"
+        @click="resetForm"
+      >
+        Reset
+      </scale-button>
+    </form>
+  </AView>
+</template>
+
+<style scoped>
+form {
+  max-width: 300px;
+  margin-top: var(--scl-spacing-16);
+}
+</style>

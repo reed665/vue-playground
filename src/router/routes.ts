@@ -2,7 +2,7 @@ import type { RouteRecordRaw } from 'vue-router'
 import { HomeView } from '../modules/home'
 import { RouteName } from './RouteName'
 import { ComposablesAndRenderlessComponentsView } from '@/modules/composables-and-renderless-components'
-import { ScaleView } from '@/modules/scale'
+import { ScaleFormWithVuelidateView } from '@/modules/scale-form-with-vuelidate'
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -24,8 +24,8 @@ export const routes: RouteRecordRaw[] = [
     component: ComposablesAndRenderlessComponentsView,
   },
   {
-    path: '/scale',
-    name: RouteName.Scale,
-    component: ScaleView,
+    path: '/scale-form-with-vuelidate',
+    name: RouteName.ScaleFormWithVueldiate,
+    component: ScaleFormWithVuelidateView,
   },
 ]

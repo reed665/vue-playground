@@ -21,7 +21,7 @@ const navData: INavItem[] = [
   newNavItem('Home', { name: RouteName.Home }),
   newNavItem('About', { name: RouteName.About }),
   newNavItem('Composables And Renderless Components', { name: RouteName.ComposablesAndRenderlessComponents }),
-  newNavItem('Scale', { name: RouteName.Scale }),
+  newNavItem('Scale Form With Vuelidate', { name: RouteName.ScaleFormWithVueldiate }),
 ]
 </script>
 
