@@ -9,5 +9,6 @@ module.exports = {
   },
   rules: {
     'vue/html-self-closing': 'off',
+    'vue/no-deprecated-slot-attribute': 'off',
   },
 }
