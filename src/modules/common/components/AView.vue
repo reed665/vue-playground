@@ -1,3 +1,6 @@
+<script setup lang="ts">
+</script>
+
 <template>
   <div class="a-view">
     <h1 v-if="$slots.heading">

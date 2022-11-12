@@ -4,7 +4,7 @@ import { useVuelidate } from '@vuelidate/core'
 import { required } from '@vuelidate/validators'
 import FormControl from '../components/FormControl.vue'
 import BetterScaleTextField from '../components/BetterScaleTextField.vue'
-import { AView, WithScaleLoadingSpinner } from '@/modules/common/components'
+import { WithScaleLoadingSpinner } from '@/modules/common/components'
 
 const state = reactive({
   firstName: '',

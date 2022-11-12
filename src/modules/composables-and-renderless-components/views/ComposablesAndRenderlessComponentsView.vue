@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import MouseTracker from '../components/MouseTracker.vue'
-import { AView } from '@/modules/common/components'
 </script>
 
 <template>
