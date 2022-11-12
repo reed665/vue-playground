@@ -1,6 +1,6 @@
 import type { Component } from 'vue'
+
 import AView from './AView.vue'
-export { default as AView } from './AView.vue'
 
 export const globalComponents: Record<string, Component> = {
   AView,
