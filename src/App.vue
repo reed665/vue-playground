@@ -1,21 +1,30 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { RouterView } from 'vue-router'
-import { TheLayout, TheNav } from './modules/common/components'
+import { TheNav } from './modules/common/components'
 import { useMousePosition } from './modules/composables-and-renderless-components'
 
 const { listenMouseMove } = useMousePosition()
 
 listenMouseMove()
+
+const drawerOpened = ref(true)
 </script>
 
 <template>
-  <TheLayout>
-    <template #nav>
+  <v-app>
+    <v-navigation-drawer v-model="drawerOpened">
       <TheNav />
-    </template>
+    </v-navigation-drawer>
 
-    <template #content>
+    <v-app-bar>
+      <v-app-bar-nav-icon @click="drawerOpened = !drawerOpened"></v-app-bar-nav-icon>
+
+      <v-toolbar-title>Vue playground</v-toolbar-title>
+    </v-app-bar>
+
+    <v-main>
       <RouterView />
-    </template>
-  </TheLayout>
+    </v-main>
+  </v-app>
 </template>

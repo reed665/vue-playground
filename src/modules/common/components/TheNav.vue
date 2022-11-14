@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type RouteLocationRaw, RouterLink } from 'vue-router'
+import type { RouteLocationRaw } from 'vue-router'
 import { nanoid } from 'nanoid/non-secure'
 import { RouteName } from '@/router/RouteName'
 
@@ -26,46 +26,14 @@ const navData: INavItem[] = [
 </script>
 
 <template>
-  <nav>
-    <RouterLink
+  <v-list nav>
+    <v-list-item
       v-for="item of navData"
       :key="item.id"
+      link
       :to="item.to"
     >
       {{ item.text }}
-    </RouterLink>
-  </nav>
+    </v-list-item>
+  </v-list>
 </template>
-
-<style scoped>
-nav {
-  display: flex;
-  flex-direction: column;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-}
-
-@media (min-width: 1024px) {
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-
-  nav a {
-    padding: 0 1rem;
-  }
-}
-</style>

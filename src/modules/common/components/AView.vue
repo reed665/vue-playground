@@ -12,8 +12,13 @@
 </template>
 
 <style scoped>
+.a-view {
+  padding: 12px;
+}
+
 @media (min-width: 1024px) {
   .a-view {
+    padding: 24px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
