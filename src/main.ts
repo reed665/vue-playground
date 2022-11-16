@@ -7,7 +7,7 @@ import toast from './plugins/vue-toasification'
 import globalComponents from './plugins/global-components'
 import { vuetify } from './plugins/vuetify'
 import './plugins/scale'
-import './assets/main.css'
+import './assets/base.css'
 
 const app = createApp(App)
 
