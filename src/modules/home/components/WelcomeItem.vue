@@ -1,3 +1,5 @@
+<script setup lang="ts"></script>
+
 <template>
   <div class="item">
     <i>
@@ -32,15 +34,12 @@ i {
   place-content: center;
   width: 32px;
   height: 32px;
-
-  color: var(--color-text);
 }
 
 h3 {
   font-size: 1.2rem;
   font-weight: 500;
   margin-bottom: 0.4rem;
-  color: var(--color-heading);
 }
 
 @media (min-width: 1024px) {
@@ -50,9 +49,6 @@ h3 {
   }
 
   i {
-    border: 1px solid var(--color-border);
-    background: var(--color-background);
-    border-radius: 8px;
     margin-top: 4px;
     width: 50px;
     height: 50px;
