@@ -11,19 +11,19 @@ listenMouseMove()
 
 const drawerOpened = ref(true)
 
-const theme = ref('light')
-
-const toggleTheme = () => {
-  const newThemeValue = (theme.value === 'light' ? 'dark' : 'light')
-
-  theme.value = newThemeValue
-}
+const theme = ref(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
 
 useEventListener(window.matchMedia('(prefers-color-scheme: dark)'), 'change', (event) => {
   const newThemeValue = event.matches ? 'dark' : 'light'
 
   theme.value = newThemeValue
 })
+
+const toggleTheme = () => {
+  const newThemeValue = (theme.value === 'light' ? 'dark' : 'light')
+
+  theme.value = newThemeValue
+}
 </script>
 
 <template>
