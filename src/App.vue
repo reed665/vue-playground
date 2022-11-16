@@ -19,11 +19,11 @@ useEventListener(window.matchMedia('(prefers-color-scheme: dark)'), 'change', (e
   theme.value = newThemeValue
 })
 
-const toggleTheme = () => {
-  const newThemeValue = (theme.value === 'light' ? 'dark' : 'light')
+// const toggleTheme = () => {
+//   const newThemeValue = (theme.value === 'light' ? 'dark' : 'light')
 
-  theme.value = newThemeValue
-}
+//   theme.value = newThemeValue
+// }
 </script>
 
 <template>
@@ -36,12 +36,12 @@ const toggleTheme = () => {
       <v-app-bar-nav-icon @click="drawerOpened = !drawerOpened"></v-app-bar-nav-icon>
       <v-toolbar-title>Vue playground</v-toolbar-title>
 
-      <v-btn
+      <!-- <v-btn
         :prepend-icon="theme === 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'"
         @click="toggleTheme"
       >
         Toggle Theme
-      </v-btn>
+      </v-btn> -->
     </v-app-bar>
 
     <v-main>
