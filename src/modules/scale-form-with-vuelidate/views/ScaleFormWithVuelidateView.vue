@@ -2,9 +2,12 @@
 import { reactive, ref } from 'vue'
 import { useVuelidate } from '@vuelidate/core'
 import { required } from '@vuelidate/validators'
+import { useToast } from 'vue-toastification'
 import FormControl from '../components/FormControl.vue'
 import BetterScaleTextField from '../components/BetterScaleTextField.vue'
 import { WithScaleLoadingSpinner } from '@/modules/common/components'
+
+const toast = useToast()
 
 const state = reactive({
   firstName: '',
@@ -46,9 +49,11 @@ const onFormSubmit = async () => {
   try {
     await loadForm()
     resetForm()
+
+    toast('Submitted!')
   }
   catch {
-    // do nothing
+    toast.error('Error submitting form')
   }
 }
 </script>
