@@ -1,12 +1,8 @@
 <script setup lang="ts">
-import { useToast } from 'vue-toastification'
+import { ref } from 'vue'
 import TheForm from '../components/TheForm.vue'
 
-const toast = useToast()
-
-const onFormSubmit = () => {
-  toast('Submitted!')
-}
+const showingSnackbar = ref(false)
 </script>
 
 <template>
@@ -15,8 +11,23 @@ const onFormSubmit = () => {
       Scale form with Vuelidate
     </template>
 
-    <TheForm @form-submit="onFormSubmit" />
+    <TheForm @form-submit="showingSnackbar = true" />
   </AView>
+
+  <v-snackbar v-model="showingSnackbar">
+    Submitted!
+
+    <template #actions>
+      <v-btn
+        type="button"
+        variant="text"
+        color="pink"
+        @click="showingSnackbar = false"
+      >
+        Close
+      </v-btn>
+    </template>
+  </v-snackbar>
 </template>
 
 <style scoped>
