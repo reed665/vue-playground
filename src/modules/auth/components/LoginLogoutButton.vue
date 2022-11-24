@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useAuth } from '../composables/useAuth'
 
-const { isLoggedIn, logIn, logOut } = useAuth()
+const { isLoggedIn, showLoginDialog, logOut } = useAuth()
 </script>
 
 <template>
@@ -16,7 +16,7 @@ const { isLoggedIn, logIn, logOut } = useAuth()
   <v-btn
     v-else
     type="button"
-    @click="logIn"
+    @click="showLoginDialog"
   >
     Log in
   </v-btn>

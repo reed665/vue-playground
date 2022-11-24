@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import { RouterView } from 'vue-router'
 import { UseDark } from '@vueuse/components'
 import { TheNav } from './modules/common/components'
-import { LoginLogoutButton } from './modules/auth'
+import { LoginDialog, LoginLogoutButton } from './modules/auth'
 import { useMousePosition } from './modules/composables-and-renderless-components'
 
 const { listenMouseMove } = useMousePosition()
@@ -40,6 +40,8 @@ const drawerOpened = ref(true)
       <v-main>
         <RouterView />
       </v-main>
+
+      <LoginDialog />
     </v-app>
   </UseDark>
 </template>
