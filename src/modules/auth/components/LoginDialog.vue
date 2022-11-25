@@ -71,6 +71,7 @@ watch(() => showingLoginDialog.value, () => {
 
         <v-text-field
           v-model="state.password"
+          type="password"
           class="mb-2"
           :readonly="loadingForm"
           label="Password"
