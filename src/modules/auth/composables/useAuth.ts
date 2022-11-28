@@ -1,20 +1,24 @@
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useLocalStorage } from '@vueuse/core'
+import type { IAuthUser } from '../interfaces/IAuthUser'
+import { newAuthUser } from '../helpers/newAuthUser'
 
-const isLoggedIn = useLocalStorage('is-logged-in', false)
+const authUser = useLocalStorage('logged-in-user', newAuthUser())
+const isLoggedIn = computed(() => !!authUser.value.username)
 const showingLoginDialog = ref(false)
 
 const showLoginDialog = () => {
   showingLoginDialog.value = true
 }
 
-const logIn = () => {
+const logIn = (data: IAuthUser) => {
+  authUser.value = { ...data }
+
   showingLoginDialog.value = false
-  isLoggedIn.value = true
 }
 
 const logOut = () => {
-  isLoggedIn.value = false
+  authUser.value = newAuthUser()
 }
 
 export const useAuth = () => {

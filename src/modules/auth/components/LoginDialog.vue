@@ -1,19 +1,17 @@
 <script setup lang="ts">
-import { reactive, ref, watch } from 'vue'
+import { reactive, ref, toRaw, watch } from 'vue'
 import { useVuelidate } from '@vuelidate/core'
 import { required } from '@vuelidate/validators'
 import { useAuth } from '../composables/useAuth'
+import type { IAuthUser } from '../interfaces/IAuthUser'
+import { newAuthUser } from '../helpers/newAuthUser'
 
 const { showingLoginDialog, logIn } = useAuth()
 
-const state = reactive({
-  username: '',
-  password: '',
-})
+const state: IAuthUser = reactive(newAuthUser())
 
 const rules = {
   username: { required },
-  password: { required },
 }
 
 const loadingForm = ref(false)
@@ -34,8 +32,7 @@ const v$ = useVuelidate(rules, state)
 const resetForm = () => {
   v$.value.$reset()
 
-  state.username = ''
-  state.password = ''
+  Object.assign(state, newAuthUser())
 }
 
 const onFormSubmit = async () => {
@@ -44,8 +41,10 @@ const onFormSubmit = async () => {
     return
 
   await loadForm()
+
+  logIn(state)
+
   resetForm()
-  logIn()
 }
 
 watch(() => showingLoginDialog.value, () => {
@@ -69,13 +68,12 @@ watch(() => showingLoginDialog.value, () => {
           :error-messages="v$.username.$error ? [v$.username.$errors[0].$message.toString()] : []"
         />
 
-        <v-text-field
-          v-model="state.password"
-          type="password"
-          class="mb-2"
-          :readonly="loadingForm"
-          label="Password"
-          :error-messages="v$.password.$errors.map(item => item.$message.toString())"
+        <v-autocomplete
+          v-model="state.userRoles"
+          chips
+          multiple
+          label="User roles"
+          :items="['Can do Foo action', 'Can view Bar page']"
         />
 
         <v-btn
