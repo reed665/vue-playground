@@ -1,16 +1,17 @@
 <script setup lang="ts">
 import { useAuth } from '../composables/useAuth'
+import { RouteName } from '@/router/RouteName'
 
-const { isLoggedIn, showLoginDialog, logOut } = useAuth()
+const { isLoggedIn, authUser, showLoginDialog } = useAuth()
 </script>
 
 <template>
   <v-btn
     v-if="isLoggedIn"
     type="button"
-    @click="logOut"
+    :to="{ name: RouteName.Profile }"
   >
-    Log out
+    Hello, {{ authUser.username }}!
   </v-btn>
 
   <v-btn

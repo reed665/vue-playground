@@ -3,6 +3,7 @@ import { HomeView } from '../modules/home'
 import { RouteName } from './RouteName'
 import { ComposablesAndRenderlessComponentsView } from '@/modules/composables-and-renderless-components'
 import { ScaleFormWithVuelidateView } from '@/modules/scale-form-with-vuelidate'
+import { ProfileView } from '@/modules/auth'
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -17,6 +18,11 @@ export const routes: RouteRecordRaw[] = [
     // this generates a separate chunk (About.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import('../modules/about/views/AboutView.vue'),
+  },
+  {
+    path: '/profile',
+    name: RouteName.Profile,
+    component: ProfileView,
   },
   {
     path: '/composables-and-renderless-components',

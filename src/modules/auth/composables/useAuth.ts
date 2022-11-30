@@ -25,6 +25,7 @@ export const useAuth = () => {
   return {
     isLoggedIn,
     showingLoginDialog,
+    authUser,
     showLoginDialog,
     logIn,
     logOut,
