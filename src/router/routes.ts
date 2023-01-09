@@ -1,6 +1,7 @@
 import type { RouteRecordRaw } from 'vue-router'
 import { HomeView } from '../modules/home'
 import { RouteName } from './RouteName'
+import { userIsLoggedInGuard } from './guards'
 import { ComposablesAndRenderlessComponentsView } from '@/modules/composables-and-renderless-components'
 import { ScaleFormWithVuelidateView } from '@/modules/scale-form-with-vuelidate'
 import { ProfileView } from '@/modules/auth'
@@ -23,6 +24,7 @@ export const routes: RouteRecordRaw[] = [
     path: '/profile',
     name: RouteName.Profile,
     component: ProfileView,
+    beforeEnter: userIsLoggedInGuard,
   },
   {
     path: '/composables-and-renderless-components',
